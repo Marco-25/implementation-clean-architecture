@@ -13,14 +13,7 @@ repos:
         pass_filenames: false
         always_run: true
         stages: [commit]
-- repo: local
-    hooks:
-      - id: pipenv
-        name: pipenv
-        entry: pipenv run pre-commit
-        language: system
-        pass_filenames: false
-        stages: [commit]
+
 
 
 
