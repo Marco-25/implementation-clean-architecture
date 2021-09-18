@@ -1,10 +1,9 @@
 repos:
 -   repo: https://github.com/pycqa/flake8
-    rev: 'stable' 
+    rev: 3.7.9
     hooks:
     -   id: flake8
         stages: [commit]
-
 - repo: local
     hooks:
       - id: pytest
@@ -14,3 +13,16 @@ repos:
         pass_filenames: false
         always_run: true
         stages: [commit]
+- repo: local
+    hooks:
+      - id: pipenv
+        name: pipenv
+        entry: pipenv run pre-commit
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+
+
+
+        
