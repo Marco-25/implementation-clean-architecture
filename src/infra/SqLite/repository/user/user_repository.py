@@ -1,10 +1,11 @@
 from typing import List, Union
+from src.data.interfaces import UserRepositoryInterface
 from src.domain.models import Users
 from src.infra.SqLite.config import DBConnectionHandler
 from src.infra.SqLite.entities import Users as UsersModel
 
 
-class UserRepository:
+class UserRepository(UserRepositoryInterface):
 
     @classmethod
     def insert_user(cls, name: str, password: str) -> Users:
