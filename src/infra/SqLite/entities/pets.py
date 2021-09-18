@@ -21,7 +21,6 @@ class Pets(Base):
     name = Column(String, nullable=False)
     specie = Column(Enum(AnimalTypes), nullable=False)
     age = Column(String)
-
     user_id = Column(Integer, ForeignKey("users.id"))
 
     def __rep__(self) -> str:
@@ -36,14 +35,7 @@ class Pets(Base):
             and self.name == other.name
             and self.specie == other.specie
             and self.age == other.age
+            and self.user_id == other.user_id
         ):
             return True
         return False
-
-    def to_json(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "specie": self.specie,
-            "age": self.age
-        }

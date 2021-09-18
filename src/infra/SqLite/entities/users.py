@@ -25,10 +25,3 @@ class Users(Base):
         ):
             return True
         return False
-
-    def to_json(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "password": self.password
-        }
