@@ -29,3 +29,21 @@ class Pets(Base):
                 [name={self.name},\
                 specie={self.specie}, \
                 user_id={self.user_id}]"
+
+    def __eq__(self, other) -> bool:
+        if (
+            self.id == other.id
+            and self.name == other.name
+            and self.specie == other.specie
+            and self.age == other.age
+        ):
+            return True
+        return False
+
+    def to_json(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "specie": self.specie,
+            "age": self.age
+        }

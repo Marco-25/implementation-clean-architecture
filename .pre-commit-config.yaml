@@ -1,16 +1,21 @@
 repos:
 -   repo: https://github.com/pycqa/flake8
-    rev: 'stable' 
+    rev: 3.7.9
     hooks:
     -   id: flake8
         stages: [commit]
+- repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest -v -s
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [commit]
 
-  # - repo: local
-  #   hooks:
-  #     - id: pytest
-  #       name: pytest
-  #       entry: pytest
-  #       language: system
-  #       pass_filenames: false
-  #       always_run: true
-          # stages: [commit]
+
+
+
+
+        

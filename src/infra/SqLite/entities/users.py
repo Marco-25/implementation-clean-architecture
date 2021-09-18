@@ -16,3 +16,19 @@ class Users(Base):
 
     def __rep__(self) -> str:
         return f"User [name={self.name}]"
+
+    def __eq__(self, other) -> bool:
+        if (
+            self.id == other.id
+            and self.name == other.name
+            and self.password == other.password
+        ):
+            return True
+        return False
+
+    def to_json(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "password": self.password
+        }
