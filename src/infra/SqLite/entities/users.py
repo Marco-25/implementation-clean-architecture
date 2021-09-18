@@ -16,3 +16,10 @@ class Users(Base):
 
     def __rep__(self) -> str:
         return f"User [name={self.name}]"
+
+    def to_json(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "password": self.password
+        }

@@ -29,3 +29,11 @@ class Pets(Base):
                 [name={self.name},\
                 specie={self.specie}, \
                 user_id={self.user_id}]"
+
+    def to_json(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "specie": self.specie,
+            "age": self.age
+        }
