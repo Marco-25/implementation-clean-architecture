@@ -1,20 +1,19 @@
-
+from src.domain.models import Users
 from src.infra.SqLite.config import DBConnectionHandler
-from src.infra.SqLite.entities import Users
+from src.infra.SqLite.entities import Users as UsersModel
 
 
 class UserRepository:
 
     @classmethod
-    def insert_user(cls, name: str, password: str) -> dict:
+    def insert_user(cls, name: str, password: str) -> Users:
 
         with DBConnectionHandler() as db_connection:
             try:
-                new_user = Users(name=name, password=password)
+                new_user = UsersModel(name=name, password=password)
                 db_connection.session.add(new_user)
                 db_connection.session.commit()
-                db_connection.session.refresh(new_user)
-                return new_user.to_json()
+                return Users(new_user.id, new_user.name, new_user.password)
             except:
                 db_connection.session.rollback()
                 raise
