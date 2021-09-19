@@ -4,15 +4,15 @@ repos:
     hooks:
     -   id: flake8
         stages: [commit]
-- repo: local
+-   repo: local
     hooks:
-      - id: pytest
-        name: pytest
-        entry: pytest -v -s
-        language: system
-        pass_filenames: false
-        always_run: true
-        stages: [commit]
+    - id: pytest
+      name: pytest
+      language: system
+      entry: pytest -v -s
+      always_run: true
+      pass_filenames: false
+      stages: [commit]
 
 
 
