@@ -1,5 +1,5 @@
 from src.data.interfaces.pet_repository_interface import PetRepositoryInterface
-from src.domain.usecase.user.find_pet_usecase import FindPetInterface
+from src.domain.usecase.pet.find_pet_usecase import FindPetInterface
 
 
 class FindPet(FindPetInterface):
