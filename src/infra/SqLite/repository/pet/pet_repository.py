@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Union, Optional
 from src.data.interfaces import PetRepositoryInterface
 from src.domain.models import Pets
 from src.infra.SqLite.config import DBConnectionHandler
@@ -8,7 +8,7 @@ from src.infra.SqLite.entities import Pets as PetsModel
 class PetRepository(PetRepositoryInterface):
 
     @classmethod
-    def insert_pet(cls, name: str, specie: str, age: int, user_id: int) -> Pets:
+    def insert_pet(cls, name: str, specie: str, age: Optional[int], user_id: int) -> Pets:
 
         with DBConnectionHandler() as db_connection:
             try:
