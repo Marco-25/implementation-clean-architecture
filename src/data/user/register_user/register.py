@@ -1,4 +1,4 @@
-from src.domain.usecase.register_user_usecase import RegisterUserInterface
+from src.domain.usecase.user.register_user_usecase import RegisterUserInterface
 from src.data.interfaces.user_repository_interface import UserRepositoryInterface as UserRepository
 
 
